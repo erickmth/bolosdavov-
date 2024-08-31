@@ -156,7 +156,7 @@ button:hover {
 /* Estilos do rodapé */
 footer {
     background-color: #ff6f61;
-    color: white;
+    color: rgb(0, 0, 0);
     text-align: center;
     padding: 20px;
     position: relative;
@@ -197,5 +197,44 @@ footer {
 
     .social-icons img {
         width: 25px;
+    }
+}
+
+
+
+
+
+/* Ajustes de Estilo para Mobile */
+@media (max-width: 768px) {
+    header {
+        padding: 10px 0; /* Reduz o espaçamento vertical no mobile */
+    }
+
+    .header-background {
+        width: 100%;
+        height: auto;
+        position: absolute;
+        top: -20px; /* Ajuste para melhor visualização */
+        left: 0;
+        z-index: -1;
+    }
+
+    .header-content {
+        max-width: 100%; /* Utiliza toda a largura disponível */
+        padding: 0 10px; /* Adiciona um pouco de espaçamento lateral */
+    }
+
+    .logo {
+        width: 35%; /* Reduz ainda mais o tamanho da logo para mobile */
+        transform: translateY(-10px); /* Ajusta a posição da logo */
+    }
+
+    .carrinho-link {
+        top: 15px; /* Ajusta a posição do carrinho */
+        right: 15px;
+    }
+
+    .carrinho {
+        max-height: 40px; /* Reduz o tamanho do carrinho para mobile */
     }
 }
