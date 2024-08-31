@@ -1,0 +1,190 @@
+/* Reset básico */
+body, h1, h2, h3, p, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo e HTML */
+html, body {
+    overflow-x: hidden; /* Bloqueia a rolagem horizontal */
+    overflow-y: auto; /* Permite rolagem vertical */
+    height: 100%; /* Garante que o HTML e o body tenham 100% de altura */
+}
+
+/* Corpo */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    padding: 0;
+    margin: 0;
+}
+
+/* Cabeçalho */
+header {
+    position: relative;
+    text-align: center;
+    padding: 20px 0; /* Menor espaçamento vertical */
+}
+
+.header-background {
+    width: 100%;
+    height: auto;
+    display: block;
+    position: absolute;
+    top: -105px; /* Subir a imagem 50px para cima */
+    left: 0;
+    z-index: -1;
+    filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.3)); /* Sombra preta suave */
+}
+
+
+
+.header-content {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    width: 18vw; /* A largura será 18% da largura da tela */
+    height: auto; /* Mantém a proporção */
+    display: block;
+    margin: 0 auto; /* Centraliza a logo */
+    transform: translateY(-25px); /* Sobe a logo 25px */
+    position: relative; /* Necessário para que o filtro funcione corretamente */
+    filter: drop-shadow(0 0 10px #fff); /* Efeito de borda branca ao redor da imagem */
+}
+
+.carrinho-link {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+}
+
+.carrinho {
+    max-height: 50px;
+    display: block;
+    border-radius: 10px; /* Arredonda as bordas do carrinho */
+    box-shadow: 0 4px 8px rgb#008ad1 (0,0,0,0.3); /* Sombra preta suave */
+}
+
+/* Carrossel */
+.carousel {
+    position: relative;
+    max-width: 1200px;
+    margin: 60px auto; /* Reduzido para menos espaçamento do topo */
+    overflow: hidden;
+    padding: 0 20px;
+    text-align: center;
+    margin-bottom: 20px; /* Espaçamento abaixo do texto */
+}
+
+/* Carrossel Header */
+.carousel-header h2 {
+    font-size: 24px; /* Tamanho da fonte */
+    color: #333; /* Cor do texto */
+    font-weight: bold;
+}
+
+/* Carrossel Wrapper */
+.carousel-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 0; /* Garante que o carrossel esteja abaixo das decorações */
+}
+
+.carousel-items {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 50%;
+}
+
+.carousel-item {
+    min-width: 300px;
+    background: #fff;
+    border-radius: 15px; /* Bordas arredondadas para um look moderno */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    text-align: center;
+    margin: 0 10px; /* Espaçamento entre itens */
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.carousel-item h3 {
+    margin: 10px 0;
+    font-size: 18px; /* Tamanho de fonte ajustado */
+}
+
+.carousel-item button {
+    background-color: #008ad1;
+    color: #fff;
+    border: none;
+    padding: 12px 24px; /* Botão maior */
+    border-radius: 25px; /* Borda arredondada para os botões */
+    cursor: pointer;
+    font-size: 16px; /* Tamanho de fonte ajustado */
+}
+
+.carousel-item button:hover {
+    background-color: #47ace3;
+}
+
+.prev, .next {
+    background-color: rgba(0,0,0,0.5);
+    color: #fff;
+    border: none;
+    border-radius: 50%; /* Borda arredondada para setas */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    z-index: 2; /* Garante que as setas estejam acima do carrossel */
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.prev:hover, .next:hover {
+    background-color: #008ad1;
+}
+
+/* Rodapé */
+footer {
+    background: #47ace3;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    margin: 0 15px; /* Espaçamento aumentado */
+}
+
+.social-icons img {
+    width: 30px; /* Ajuste o tamanho dos ícones conforme necessário */
+    height: auto;
+    vertical-align: middle; /* Alinha verticalmente os ícones com o texto */
+}
