@@ -125,7 +125,7 @@ header {
 
 .carousel-item button {
     background-color: #c8e2f1;
-    color: #fff;
+    color: #000000;
     border: none;
     padding: 12px 24px; /* Botão maior */
     border-radius: 25px; /* Borda arredondada para os botões */
@@ -170,7 +170,7 @@ header {
 /* Rodapé */
 footer {
     background: #c8e2f1;
-    color: #fff;
+    color: #000000;
     text-align: center;
     padding: 20px;
 }
