@@ -67,7 +67,7 @@ header {
     max-height: 50px;
     display: block;
     border-radius: 10px; /* Arredonda as bordas do carrinho */
-    box-shadow: 0 4px 8px rgb#008ad1 (0,0,0,0.3); /* Sombra preta suave */
+    box-shadow: 0 4px 8px rgb#c8e2f1 (0,0,0,0.3); /* Sombra preta suave */
 }
 
 /* Carrossel */
@@ -124,7 +124,7 @@ header {
 }
 
 .carousel-item button {
-    background-color: #008ad1;
+    background-color: #c8e2f1;
     color: #fff;
     border: none;
     padding: 12px 24px; /* Botão maior */
@@ -134,7 +134,7 @@ header {
 }
 
 .carousel-item button:hover {
-    background-color: #47ace3;
+    background-color: #c8e2f1;
 }
 
 .prev, .next {
@@ -164,12 +164,12 @@ header {
 }
 
 .prev:hover, .next:hover {
-    background-color: #008ad1;
+    background-color: #c8e2f1;
 }
 
 /* Rodapé */
 footer {
-    background: #47ace3;
+    background: #c8e2f1;
     color: #fff;
     text-align: center;
     padding: 20px;
