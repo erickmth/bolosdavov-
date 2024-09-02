@@ -21,4 +21,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (name && birthDate && phone) {
             const emailBody = `Olá, me chamo ${name}, tenho ${calculateAge(birthDate)} anos e estou interessado na vaga Bolos da Vovó! Meu telefone de contato: ${phone}`;
-            const mailtoLink = `mailto:atendimentobolosdav
+            const mailtoLink = `mailto:atendimentobolosdavovo@gmail.com?subject=Candidatura para Vaga&body=${encodeURIComponent(emailBody)}`;
+            window.location.href = mailtoLink;
+        }
+    });
+
+    function calculateAge(birthDate) {
+        const [day, month, year] = birthDate.split('/').map(Number);
+        const dob = new Date(year, month - 1, day);
+        const today = new Date();
+        let age = today.getFullYear() - dob.getFullYear();
+        const m = today.getMonth() - dob.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
+            age--;
+        }
+        return age;
+    }
+});
