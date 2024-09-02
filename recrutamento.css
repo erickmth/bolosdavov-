@@ -67,7 +67,7 @@ header {
 }
 
 .job-details h2 {
-    color: #c8e2f1;
+    color: #000; /* Cor do texto do cabeçalho dos detalhes da vaga */
 }
 
 .info {
@@ -91,7 +91,7 @@ header {
 /* Botão Candidatar-se */
 .btn {
     background-color: #c8e2f1;
-    color: #fff;
+    color: #000; /* Cor do texto do botão */
     border: none;
     padding: 12px 24px;
     border-radius: 25px;
@@ -150,7 +150,7 @@ header {
 
 .form-container .btn {
     background-color: #c8e2f1;
-    color: #fff;
+    color: #000; /* Cor do texto do botão */
     border: none;
     padding: 12px 24px;
     border-radius: 25px;
@@ -174,7 +174,7 @@ header {
 /* Rodapé */
 footer {
     background: #c8e2f1;
-    color: #0000;
+    color: #000; /* Cor do texto do rodapé */
     text-align: center;
     padding: 20px;
     margin-top: 2rem;
