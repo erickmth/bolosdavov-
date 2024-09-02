@@ -6,7 +6,6 @@
     <title>Vaga de Emprego - Auxiliar de Confeitaria</title>
     <link rel="icon" href="logovovo.svg" type="image/x-icon">
     <link rel="stylesheet" href="recrutamento.css">
-    <script src="formulario.js" defer></script>
 </head>
 <body>
     <!-- Cabeçalho -->
@@ -40,13 +39,35 @@
                     <li>Não exigimos experiência</li>
                 </ul>
             </div>
-            <button id="apply-btn">Candidatar-se</button>
+            <button id="apply-btn" class="btn">Candidatar-se</button>
         </section>
     </main>
+
+    <!-- Formulário Pop-up -->
+    <div id="form-popup" class="form-popup">
+        <div class="form-container">
+            <span class="close-btn" id="close-btn">&times;</span>
+            <h2>Formulário de Candidatura</h2>
+            <form id="application-form">
+                <label for="name">Nome completo:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="birthDate">Data de Nascimento:</label>
+                <input type="text" id="birthDate" name="birthDate" placeholder="dd/mm/aaaa" required>
+
+                <label for="phone">Telefone para contato:</label>
+                <input type="text" id="phone" name="phone" required>
+
+                <button type="submit" class="btn">Enviar</button>
+            </form>
+        </div>
+    </div>
 
     <!-- Rodapé -->
     <footer>
         <p>&copy; 2024 Bolos da Vovó</p>
     </footer>
+
+    <script src="formulario.js" defer></script>
 </body>
 </html>
