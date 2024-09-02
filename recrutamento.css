@@ -104,7 +104,7 @@ header {
 }
 
 .btn:hover {
-    background-color: #e65c50;
+    background-color: #c8e2f1;
 }
 
 /* Formulário Pop-up */
@@ -132,7 +132,7 @@ header {
 
 .form-container h2 {
     margin-bottom: 1rem;
-    color: #ff6f61;
+    color: #c8e2f1;
 }
 
 .form-container label {
@@ -149,7 +149,7 @@ header {
 }
 
 .form-container .btn {
-    background-color: #ff6f61;
+    background-color: #c8e2f1;
     color: #fff;
     border: none;
     padding: 12px 24px;
@@ -173,8 +173,8 @@ header {
 
 /* Rodapé */
 footer {
-    background: #ff6f61;
-    color: #fff;
+    background: #c8e2f1;
+    color: #0000;
     text-align: center;
     padding: 20px;
     margin-top: 2rem;
