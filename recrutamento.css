@@ -88,9 +88,25 @@ header {
     margin: 0.5rem 0;
 }
 
+/* Botão Candidatar-se */
+button {
+    background-color: #ff6f61;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #e65c50;
+}
+
 /* Rodapé */
 footer {
-    background: #ff6f61;
+    background: #c8e2f1;
     color: #fff;
     text-align: center;
     padding: 20px;
