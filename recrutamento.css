@@ -1,0 +1,98 @@
+/* Reset básico */
+body, h1, h2, h3, p, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo e HTML */
+html, body {
+    overflow-x: hidden; /* Bloqueia a rolagem horizontal */
+    overflow-y: auto; /* Permite rolagem vertical */
+    height: 100%; /* Garante que o HTML e o body tenham 100% de altura */
+}
+
+/* Corpo */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    padding: 0;
+    margin: 0;
+}
+
+/* Cabeçalho */
+header {
+    position: relative;
+    text-align: center;
+    padding: 20px 0; /* Menor espaçamento vertical */
+}
+
+.header-background {
+    width: 100%;
+    height: auto;
+    display: block;
+    position: absolute;
+    top: -105px; /* Subir a imagem 50px para cima */
+    left: 0;
+    z-index: -1;
+    filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.3)); /* Sombra preta suave */
+}
+
+.header-content {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    width: 18vw; /* A largura será 18% da largura da tela */
+    height: auto; /* Mantém a proporção */
+    display: block;
+    margin: 0 auto; /* Centraliza a logo */
+    transform: translateY(-25px); /* Sobe a logo 25px */
+    position: relative; /* Necessário para que o filtro funcione corretamente */
+    filter: drop-shadow(0 0 10px #fff); /* Efeito de borda branca ao redor da imagem */
+}
+
+/* Conteúdo da Vaga */
+.job-details {
+    background: #fff;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.job-details h2 {
+    color: #ff6f61;
+}
+
+.info {
+    margin: 1rem 0;
+}
+
+.info strong {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info li {
+    margin: 0.5rem 0;
+}
+
+/* Rodapé */
+footer {
+    background: #ff6f61;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 2rem;
+}
