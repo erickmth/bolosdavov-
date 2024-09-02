@@ -20,9 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const phone = document.getElementById('phone').value;
 
         if (name && birthDate && phone) {
-            const emailBody = `Olá, me chamo ${name}, tenho ${calculateAge(birthDate)} anos e estou interessado na vaga Bolos da Vovó! Meu telefone de contato: ${phone}`;
+            const age = calculateAge(birthDate);
+            const emailBody = `Olá, me chamo ${name}, tenho ${age} anos e estou interessado na vaga Bolos da Vovó! Meu telefone de contato: ${phone}`;
             const mailtoLink = `mailto:atendimentobolosdavovo@gmail.com?subject=Candidatura para Vaga&body=${encodeURIComponent(emailBody)}`;
             window.location.href = mailtoLink;
+
+            // Fecha o formulário após o envio
+            formPopup.style.display = 'none';
         }
     });
 
