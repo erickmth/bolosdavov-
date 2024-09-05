@@ -1,47 +1,101 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const applyBtn = document.getElementById('apply-btn');
-    const closeBtn = document.getElementById('close-btn');
-    const formPopup = document.getElementById('form-popup');
-    const applicationForm = document.getElementById('application-form');
+    const carouselItems = document.querySelector('.carousel-items');
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+    const itemCount = document.querySelectorAll('.carousel-item').length;
+    const itemWidth = document.querySelector('.carousel-item').offsetWidth;
+    let index = 0;
 
-    // Exibe o formulário quando o botão "Candidatar-se" é clicado
-    applyBtn.addEventListener('click', function() {
-        formPopup.style.display = 'flex';
+    function showSlide() {
+        carouselItems.style.transform = translateX(-${index * itemWidth}px);
+    }
+
+    function nextSlide() {
+        index = (index + 1) % itemCount;
+        showSlide();
+    }
+
+    function prevSlide() {
+        index = (index - 1 + itemCount) % itemCount;
+        showSlide();
+    }
+
+    prevButton.addEventListener('click', prevSlide);
+    nextButton.addEventListener('click', nextSlide);
+
+   
+
+    // Pausa o slide automático quando o usuário interage com o carrossel
+    document.querySelector('.carousel').addEventListener('mouseenter', () => {
+        clearInterval(autoSlide);
     });
 
-    // Fecha o formulário quando o botão de fechar é clicado
-    closeBtn.addEventListener('click', function() {
-        formPopup.style.display = 'none';
+    document.querySelector('.carousel').addEventListener('mouseleave', () => {
+        autoSlide = setInterval(nextSlide, 10000);
     });
 
-    // Manipula o evento de envio do formulário
-    applicationForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Evita o envio padrão do formulário
+    // Permite navegação por toque em dispositivos móveis
+    let touchStartX = 0;
 
-        // Captura os valores dos campos do formulário
-        const name = document.getElementById('name').value;
-        const age = document.getElementById('age').value;
-        const phone = document.getElementById('phone').value;
-        const curriculumFile = document.getElementById('curriculum').files[0];
+    document.querySelector('.carousel-wrapper').addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+    });
 
-        // Cria o corpo do e-mail com as informações do formulário
-        let emailBody = `Nome: ${name}\nIdade: ${age}\nTelefone: ${phone}`;
-
-        // Adiciona a mensagem se um currículo foi anexado
-        if (curriculumFile) {
-            emailBody += `\n\nAnexei o currículo no email: ${curriculumFile.name}`;
+    document.querySelector('.carousel-wrapper').addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].clientX;
+        if (touchEndX < touchStartX - 50) {
+            nextSlide();
+        } else if (touchEndX > touchStartX + 50) {
+            prevSlide();
         }
-
-        // Cria o link mailto
-        const mailtoLink = `mailto:atendimentobolosdavovo@gmail.com?subject=Candidatura%20para%20Vaga%20de%20Emprego&body=${encodeURIComponent(emailBody)}`;
-
-        // Abre o link mailto
-        window.location.href = mailtoLink;
-
-        // Fechar o formulário após o envio
-        formPopup.style.display = 'none';
-
-        // Limpa os campos do formulário após o envio
-        applicationForm.reset();
     });
+});
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const quantidadeInputs = document.querySelectorAll('.quantidade');
+    const totalGeralSpan = document.getElementById('total-geral');
+
+    function atualizarTotal() {
+        let totalGeral = 0;
+
+        quantidadeInputs.forEach(input => {
+            const quantidade = parseInt(input.value);
+            const precoUnitario = parseFloat(input.getAttribute('data-preco'));
+            const totalItem = quantidade * precoUnitario;
+
+            // Atualiza o total do item
+            input.closest('tr').querySelector('.total-item').textContent = R$ ${totalItem.toFixed(2)};
+
+            // Adiciona ao total geral
+            totalGeral += totalItem;
+        });
+
+        // Atualiza o total geral
+        totalGeralSpan.textContent = R$ ${totalGeral.toFixed(2)};
+    }
+
+    // Adiciona eventos de mudança para atualizar o total
+    quantidadeInputs.forEach(input => {
+        input.addEventListener('input', atualizarTotal);
+    });
+
+    // Função para remover item
+    document.querySelectorAll('.remover-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            this.closest('tr').remove();
+            atualizarTotal(); // Atualiza total após remoção
+        });
+    });
+
+    // Inicializa o total
+    atualizarTotal();
 });
