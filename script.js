@@ -32,8 +32,11 @@ document.addEventListener('DOMContentLoaded', function() {
             emailBody += `\n\nAnexei o currículo no email: ${curriculumFile.name}`;
         }
 
-        // Simulação de envio de e-mail (altere esta parte conforme necessário para enviar o e-mail de verdade)
-        alert('Formulário enviado com sucesso!\n\n' + emailBody);
+        // Cria o link mailto
+        const mailtoLink = `mailto:destinatario@exemplo.com?subject=Candidatura%20para%20Vaga%20de%20Emprego&body=${encodeURIComponent(emailBody)}`;
+
+        // Abre o link mailto
+        window.location.href = mailtoLink;
 
         // Fechar o formulário após o envio
         formPopup.style.display = 'none';
