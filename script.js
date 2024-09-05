@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Cria o link mailto
-        const mailtoLink = `mailto:destinatario@exemplo.com?subject=Candidatura%20para%20Vaga%20de%20Emprego&body=${encodeURIComponent(emailBody)}`;
+        const mailtoLink = `mailto:atendimentobolosdavovo@gmail.com?subject=Candidatura%20para%20Vaga%20de%20Emprego&body=${encodeURIComponent(emailBody)}`;
 
         // Abre o link mailto
         window.location.href = mailtoLink;
