@@ -15,12 +15,33 @@
             background-color: #ff6f61;
             color: white;
             text-align: center;
+            flex-direction: column;
+        }
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50; /* Cor do botão */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .button:hover {
+            background-color: #3e8e41; /* Cor ao passar o mouse */
         }
     </style>
 </head>
 <body>
     <h1>Página não encontrada</h1>
     <p>Oops! Parece que essa página não existe.</p>
-    <a href="/" style="color: white;">Voltar para a página inicial</a>
+    <!-- Botão para voltar para a página inicial -->
+    <a href="/" class="button">Voltar para a página inicial</a>
 </body>
 </html>
+
