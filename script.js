@@ -5,9 +5,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const itemCount = document.querySelectorAll('.carousel-item').length;
     const itemWidth = document.querySelector('.carousel-item').offsetWidth;
     let index = 0;
+    let autoSlide;
 
     function showSlide() {
-        carouselItems.style.transform = translateX(-${index * itemWidth}px);
+        carouselItems.style.transform = `translateX(-${index * itemWidth}px)`;
     }
 
     function nextSlide() {
@@ -23,7 +24,8 @@ document.addEventListener('DOMContentLoaded', function() {
     prevButton.addEventListener('click', prevSlide);
     nextButton.addEventListener('click', nextSlide);
 
-   
+    // Inicia o slide automático
+    autoSlide = setInterval(nextSlide, 10000);
 
     // Pausa o slide automático quando o usuário interage com o carrossel
     document.querySelector('.carousel').addEventListener('mouseenter', () => {
@@ -36,66 +38,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Permite navegação por toque em dispositivos móveis
     let touchStartX = 0;
+    let touchEndX = 0;
 
     document.querySelector('.carousel-wrapper').addEventListener('touchstart', (e) => {
         touchStartX = e.touches[0].clientX;
+        carouselItems.style.transition = 'none';
+    });
+
+    document.querySelector('.carousel-wrapper').addEventListener('touchmove', (e) => {
+        touchEndX = e.touches[0].clientX;
+        const distanceMoved = touchEndX - touchStartX;
+        carouselItems.style.transform = `translateX(${-index * itemWidth + distanceMoved}px)`;
     });
 
     document.querySelector('.carousel-wrapper').addEventListener('touchend', (e) => {
-        const touchEndX = e.changedTouches[0].clientX;
-        if (touchEndX < touchStartX - 50) {
+        const distanceMoved = touchEndX - touchStartX;
+        carouselItems.style.transition = 'transform 0.3s ease';
+
+        if (distanceMoved < -50) {
             nextSlide();
-        } else if (touchEndX > touchStartX + 50) {
+        } else if (distanceMoved > 50) {
             prevSlide();
+        } else {
+            showSlide();
         }
     });
-});
-
-
-
-
-
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    const quantidadeInputs = document.querySelectorAll('.quantidade');
-    const totalGeralSpan = document.getElementById('total-geral');
-
-    function atualizarTotal() {
-        let totalGeral = 0;
-
-        quantidadeInputs.forEach(input => {
-            const quantidade = parseInt(input.value);
-            const precoUnitario = parseFloat(input.getAttribute('data-preco'));
-            const totalItem = quantidade * precoUnitario;
-
-            // Atualiza o total do item
-            input.closest('tr').querySelector('.total-item').textContent = R$ ${totalItem.toFixed(2)};
-
-            // Adiciona ao total geral
-            totalGeral += totalItem;
-        });
-
-        // Atualiza o total geral
-        totalGeralSpan.textContent = R$ ${totalGeral.toFixed(2)};
-    }
-
-    // Adiciona eventos de mudança para atualizar o total
-    quantidadeInputs.forEach(input => {
-        input.addEventListener('input', atualizarTotal);
-    });
-
-    // Função para remover item
-    document.querySelectorAll('.remover-btn').forEach(button => {
-        button.addEventListener('click', function() {
-            this.closest('tr').remove();
-            atualizarTotal(); // Atualiza total após remoção
-        });
-    });
-
-    // Inicializa o total
-    atualizarTotal();
 });
