@@ -224,3 +224,19 @@ footer {
         max-height: 40px; /* Reduz o tamanho do carrinho para mobile */
     }
 }
+
+
+
+
+/* Desativa a seleção de texto */
+.carousel-wrapper {
+    user-select: none; /* Para a maioria dos navegadores */
+    -webkit-user-select: none; /* Para Safari */
+    -ms-user-select: none; /* Para Internet Explorer/Edge */
+    cursor: grab; /* Mostra um cursor de "mão aberta" */
+}
+
+.carousel-wrapper:active {
+    cursor: grabbing; /* Mostra um cursor de "mão fechada" durante o arraste */
+}
+
