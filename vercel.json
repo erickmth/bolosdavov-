@@ -1,18 +1,15 @@
 {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
-  ],
   "routes": [
     {
-      "src": "^/404$",
-      "dest": "/404.html",
+      "src": "^/.*$",  // Esta expressão regular captura todas as rotas
+      "dest": "/404.html",  // Destino para onde ir se a rota não for encontrada
       "status": 404
     }
   ],
   "error": {
     "notFound": {
-      "dest": "/404.html",
-      "status": 404
+      "dest": "/404.html",  // O destino se o destino for configurado para 404
+      "status": 404  // Status, o que você pode ver agora
     }
   }
 }
