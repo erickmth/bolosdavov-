@@ -42,7 +42,6 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentTranslate = 0;
     let prevTranslate = 0;
     let animationID;
-    let currentIndex = 0;
 
     // Função para mover o carrossel
     function setSliderPosition() {
@@ -56,14 +55,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Adicionar eventos de mouse e toque
-    document.querySelector('.carousel-wrapper').addEventListener('mousedown', dragStart);
-    document.querySelector('.carousel-wrapper').addEventListener('mouseup', dragEnd);
-    document.querySelector('.carousel-wrapper').addEventListener('mousemove', dragAction);
-    document.querySelector('.carousel-wrapper').addEventListener('mouseleave', dragEnd);
+    const carouselWrapper = document.querySelector('.carousel-wrapper');
+    carouselWrapper.addEventListener('mousedown', dragStart);
+    carouselWrapper.addEventListener('mouseup', dragEnd);
+    carouselWrapper.addEventListener('mousemove', dragAction);
+    carouselWrapper.addEventListener('mouseleave', dragEnd);
 
-    document.querySelector('.carousel-wrapper').addEventListener('touchstart', dragStart);
-    document.querySelector('.carousel-wrapper').addEventListener('touchend', dragEnd);
-    document.querySelector('.carousel-wrapper').addEventListener('touchmove', dragAction);
+    carouselWrapper.addEventListener('touchstart', dragStart);
+    carouselWrapper.addEventListener('touchend', dragEnd);
+    carouselWrapper.addEventListener('touchmove', dragAction);
 
     function dragStart(event) {
         isDragging = true;
@@ -71,6 +71,9 @@ document.addEventListener('DOMContentLoaded', function() {
         currentTranslate = prevTranslate;
         animationID = requestAnimationFrame(animation);
         carouselItems.style.transition = 'none';
+
+        // Adiciona a classe para desativar a seleção de texto
+        carouselWrapper.classList.add('dragging');
     }
 
     function dragEnd() {
@@ -90,6 +93,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         prevTranslate = currentTranslate;
         carouselItems.style.transition = 'transform 0.3s ease';
+
+        // Remove a classe para restaurar a seleção de texto
+        carouselWrapper.classList.remove('dragging');
     }
 
     function dragAction(event) {
