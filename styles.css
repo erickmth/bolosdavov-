@@ -228,15 +228,23 @@ footer {
 
 
 
-/* Desativa a seleção de texto */
+/* Desativa a seleção de texto e imagens */
 .carousel-wrapper {
-    user-select: none; /* Para a maioria dos navegadores */
-    -webkit-user-select: none; /* Para Safari */
-    -ms-user-select: none; /* Para Internet Explorer/Edge */
-    cursor: grab; /* Mostra um cursor de "mão aberta" */
+    user-select: none; /* Desativa a seleção de texto para a maioria dos navegadores */
+    -webkit-user-select: none; /* Desativa a seleção de texto para Safari */
+    -ms-user-select: none; /* Desativa a seleção de texto para Internet Explorer/Edge */
+    cursor: grab; /* Cursor de "mão aberta" */
 }
 
 .carousel-wrapper:active {
-    cursor: grabbing; /* Mostra um cursor de "mão fechada" durante o arraste */
+    cursor: grabbing; /* Cursor de "mão fechada" */
 }
+
+/* Previne a seleção de imagens dentro do carrossel */
+.carousel-wrapper img {
+    pointer-events: none; /* Impede qualquer interação do mouse com as imagens */
+    user-drag: none; /* Para navegadores WebKit, impede o arraste de imagens */
+    -webkit-user-drag: none; /* Para navegadores WebKit, impede o arraste de imagens */
+}
+
 
